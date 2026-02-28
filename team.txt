@@ -1,0 +1,6 @@
+#Trello Board Link
+https://trello.com/b/1Mwi9lXX/wdd330-team-16
+#Site deployed on render.com
+https://wdd330-team16.onrender.com/
+#Team Members 
+Jonathan Villegas
