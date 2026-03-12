@@ -15,16 +15,27 @@ export default class ProductDetails {
       .getElementById('addToCart')
       .addEventListener('click', this.addProductToCart.bind(this));
   } 
-     addProductToCart(product) {
+     addProductToCart() {
             
      //initializing array with items , if there is not any data there , ternary operator gives an empty array
      const itemsArray = Array.isArray(getLocalStorage("so-cart")) ? getLocalStorage("so-cart") : [];
-     itemsArray.push(product) //adding new products to the empty array
+     itemsArray.push(this.product) //adding new products to the empty array
      setLocalStorage("so-cart", itemsArray);
     }
 
     renderProductDetails(){
-         
+        
+        productDetailsTemplate(this.product);
+
+
+    }
+
+ 
+}
+
+
+   function productDetailsTemplate(product) {
+
          
          const title = document.querySelector("h2");
          const subTitle = document.querySelector("h3");
@@ -33,22 +44,16 @@ export default class ProductDetails {
          const productColor = document.getElementById("productColor");
          const productDescription = document.getElementById("productDesc");
 
-         title.innerHTML = `${this.product.NameWithoutBrand}`;
-         subTitle.innerHTML = `${this.product.Name}`;
-         productImage.src = `${this.product.Image}`;
-         productPrice.innerHTML = `${this.product.ListPrice}`;
-         productColor.innerHTML = `${this.product.Colors.ColorName}`;
-         productDescription.innerHTML = `${this.product.DescriptionHtmlSimple}`;
+         title.textContent = product.NameWithoutBrand;
+         subTitle.textContentL = product.Brand.Name;
+         productImage.src = product.Image;
+         productPrice.innerHTML = product.FinalPrice;
+         productColor.innerHTML = product.Colors[0].ColorName;
+         productDescription.innerHTML = product.DescriptionHtmlSimple;
 
          document.getElementById('addToCart').dataset.id = product.Id;
 
-        
-
-
-    }
-
- 
-}
+   }
 
 
 

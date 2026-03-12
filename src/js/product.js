@@ -4,15 +4,15 @@ import ProductDetails from "./ProductDetails.mjs";
 
 
 
-const productId = getParam('product');
+const productID = getParam('product');
 const dataSource = new ProductData("tents");
 
-console.log(dataSource.findProductById(productId)); //for testing
+console.log(dataSource.findProductById(productID)); //for testing
 
-const product = new ProductDetails(productId, dataSource);
+const product = new ProductDetails(productID, dataSource);
 product.init();
 
-
+/*
 // add to cart button event handler
 async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
@@ -23,3 +23,4 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
+*/
