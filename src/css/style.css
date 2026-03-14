@@ -261,3 +261,39 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+
+/* MODAL SECTION */
+
+
+
+ dialog {
+   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+ }
+
+ .modal-body {
+  display: flex;
+  flex-direction: column;
+ }
+
+
+.modal-body button {
+  text-align: center;
+  margin: 10px auto;
+  width: 200px;
+}
+
+.close-modal {
+ 
+  border: none ;
+  background: none;
+  border-radius: 0;
+  width: 5px;
+  color: #303030;
+  margin-right: 0;
+ outline: none;
+
+}
