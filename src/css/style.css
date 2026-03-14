@@ -297,3 +297,46 @@ footer {
  outline: none;
 
 }
+
+/* Newsletter */
+.newsletterWrapper {
+  margin: auto;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  padding: 25px;
+  border: 0.2px solid var(--secondary-color);
+  max-width: 600px;
+
+}
+.newsletter {
+  display: flex; border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  gap:15px;
+  border: 0.2px solid var(--secondary-color);
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 500px;
+  margin: auto;
+
+}
+
+.newsletterWrapper:hover {
+   background-color: var(--light-grey);
+}
+
+.newsletter-header{
+  flex:1;
+  text-align: center;
+}
+.newsletter-body {
+  display: flex;
+  flex-direction: row;
+}
+.newsletter-body input{
+  
+  width: 200px;
+  padding: 10px;
+  margin: 5px;
+}
