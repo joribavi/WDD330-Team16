@@ -5,3 +5,4 @@ https://wdd330-team16.onrender.com/
 #Team Members 
 Jonathan Villegas
 Godfrey Eyo
+Emmanuel Jove

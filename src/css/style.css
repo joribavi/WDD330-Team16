@@ -262,23 +262,18 @@ footer {
   padding: 1em;
 }
 
-
 /* MODAL SECTION */
 
-
-
- dialog {
-   top: 50%;
+dialog {
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
- 
- }
+}
 
- .modal-body {
+.modal-body {
   display: flex;
   flex-direction: column;
- }
-
+}
 
 .modal-body button {
   text-align: center;
@@ -287,15 +282,13 @@ footer {
 }
 
 .close-modal {
- 
-  border: none ;
+  border: none;
   background: none;
   border-radius: 0;
   width: 5px;
   color: #303030;
   margin-right: 0;
- outline: none;
-
+  outline: none;
 }
 
 /* Newsletter */
@@ -307,35 +300,33 @@ footer {
   padding: 25px;
   border: 0.2px solid var(--secondary-color);
   max-width: 600px;
-
 }
 .newsletter {
-  display: flex; border-radius: 5px;
+  display: flex;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
-  gap:15px;
+  gap: 15px;
   border: 0.2px solid var(--secondary-color);
   padding: 10px;
   border-radius: 5px;
   max-width: 500px;
   margin: auto;
-
 }
 
 .newsletterWrapper:hover {
-   background-color: var(--light-grey);
+  background-color: var(--light-grey);
 }
 
-.newsletter-header{
-  flex:1;
+.newsletter-header {
+  flex: 1;
   text-align: center;
 }
 .newsletter-body {
   display: flex;
   flex-direction: row;
 }
-.newsletter-body input{
-  
+.newsletter-body input {
   width: 200px;
   padding: 10px;
   margin: 5px;
