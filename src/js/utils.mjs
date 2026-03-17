@@ -38,3 +38,32 @@ export function renderListWithTemplate(templateFn,parentElement,list,position="a
 
   parentElement.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
 }
+
+
+export function renderWithTemplate(template,parentElement, data,callback){
+  parentElement.innerHTML = template;
+  if (callback) {
+    callback(data)   
+  }
+}
+
+export async function loadTemplate(path){
+  const response = await fetch(path);
+  const htmlElement = await response.text() 
+  return htmlElement;
+}
+
+
+export async function loadHeaderFooter(){
+  const footerElement = await loadTemplate("./public/partials/footer.html");
+  const headerElement = await loadTemplate("./public/partials/header.html");
+
+  const siteFooter = document.querySelector("footer");
+  const siteHeader = document.querySelector("header");
+
+  renderListWithTemplate(headerElement,siteHeader);
+  renderListWithTemplate(footerElement, siteFooter);
+
+  
+}
+
