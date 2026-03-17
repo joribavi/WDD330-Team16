@@ -49,20 +49,25 @@ export function renderWithTemplate(template,parentElement, data,callback){
 
 export async function loadTemplate(path){
   const response = await fetch(path);
-  const htmlElement = await response.text() 
-  return htmlElement;
+  return await response.text();
 }
 
 
 export async function loadHeaderFooter(){
-  const footerElement = await loadTemplate("./public/partials/footer.html");
-  const headerElement = await loadTemplate("./public/partials/header.html");
+  const footerElement = await loadTemplate("/partials/footer.html");
+  const headerElement = await loadTemplate("/partials/header.html");
 
   const siteFooter = document.querySelector("footer");
   const siteHeader = document.querySelector("header");
 
-  renderListWithTemplate(headerElement,siteHeader);
-  renderListWithTemplate(footerElement, siteFooter);
+  if(siteHeader){
+     renderWithTemplate(headerElement,siteHeader,null);
+  }
+  if(siteFooter){
+    renderWithTemplate(footerElement,siteFooter,null,null);
+
+  }
+
 
   
 }
