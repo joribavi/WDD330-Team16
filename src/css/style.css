@@ -268,13 +268,7 @@ button {
     grid-template-columns: 150px auto 15%;
   }
 
-   .product-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .product-card img {
+   .product-card img {
     width: 100%;
     max-height: 220px;
     object-fit: cover;
@@ -287,10 +281,7 @@ button {
 }
 
 @media (min-width: 1024px) {
-  .product-list {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
+  
   .product-card img {
     max-height: 180px;
   }
