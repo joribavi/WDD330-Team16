@@ -35,6 +35,22 @@ export function renderListWithTemplate(template,parentElement,list,position = "a
   if (clear) {
     parentElement.innerHTML = "";
   }
+}
+
+// Fetches an HTML file and returns its content as a string
+export async function loadTemplate(path) {
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+// Loads and renders the header and footer into the page
+export async function loadHeaderFooter() {
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
 
   parentElement.insertAdjacentHTML("afterbegin", htmlStrings.join(""));
 }
