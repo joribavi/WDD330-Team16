@@ -30,11 +30,28 @@ export function getParam(param) {
   return product;
 }
 
-export function renderListWithTemplate(templateFn,parentElement,list,position="afterbegin",clear=false){
-  const htmlStrings = list.map(productCardTemplate);
-  if (clear) {
-    parentElement.innerHTML = "";
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML = template;
+  if (callback) {
+    callback(data);
   }
+}
 
-  parentElement.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
+// Fetches an HTML file and returns its content as a string
+export async function loadTemplate(path) {
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+// Loads and renders the header and footer into the page
+export async function loadHeaderFooter() {
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
+
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
 }

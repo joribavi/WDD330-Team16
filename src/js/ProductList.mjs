@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderWithTemplate } from "./utils.mjs";
 
 
 function productCardTemplate(product){
@@ -31,14 +31,14 @@ export default class ProductList {
 
     async init(){
         const list = await this.dataSource.getData();
-        list.renderList(list)
+        this.renderList(list)
 
     }
 
     renderList(list) {
       //  const htmlStrings = list.map(productCardTemplate);
        // this.listElement.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
-       renderListWithTemplate(productCardTemplate, this.listElement, list);
+       renderWithTemplate(productCardTemplate, this.listElement, list);
 
      }
 
