@@ -4,13 +4,17 @@ import ProductDetails from "./ProductDetails.mjs";
 
 loadHeaderFooter();
 
-// ... rest of your product.js code
-
 const productID = getParam("product");
-const dataSource = new ProductData("tents");
+const dataSource = new ProductData();
 
 const product = new ProductDetails(productID, dataSource);
 product.init();
+
+
+
+
+
+
 
 /*
 // add to cart button event handler
