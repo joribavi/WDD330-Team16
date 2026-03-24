@@ -29,7 +29,7 @@ async function searchAllCategories(query, listEl, titleEl, source) {
 
   const categories = ["tents", "backpacks", "sleeping-bags", "hammocks"];
   const allProducts = await Promise.all(
-    categories.map(cat => dataSource.getData(cat))
+    categories.map(cat => source.getData(cat))
   );
 
   const flatProducts = allProducts.flat();
@@ -41,11 +41,11 @@ async function searchAllCategories(query, listEl, titleEl, source) {
   );
 
   if (results.length === 0) {
-    listElement.innerHTML = `
+    listEl.innerHTML = `
       <li class="no-results">No products found for "${query}"</li>
     `;
   } else {
-    listElement.innerHTML = results.map(product => `
+    listEl.innerHTML = results.map(product => `
       <li class="product-card">
         <a href="/product_pages/?product=${product.Id}">
           <img src="${product.Images.PrimaryMedium}" alt="${product.Name}">

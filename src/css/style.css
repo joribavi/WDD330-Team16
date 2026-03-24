@@ -316,6 +316,18 @@ button {
   margin: 0;
 }
 
+.product-list {
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.product-list a {
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -350,6 +362,7 @@ button {
     width: 100px;
     height: 100px;
   }
+  
 }
 
 
