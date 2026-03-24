@@ -23,8 +23,8 @@ if (searchQuery) {
 }
 
 async function searchAllCategories(query, listEl, titleEl, source) {
-  if (titleElement) {
-    titleElement.textContent = `Search Results: "${query}"`;
+  if (titleEl) {
+    titleEl.textContent = `Search Results: "${query}"`;
   }
 
   const categories = ["tents", "backpacks", "sleeping-bags", "hammocks"];
