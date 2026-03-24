@@ -62,6 +62,16 @@ export function initSearch() {
   }
 }
 
+export function updateCartCount() {
+  const cartItems = getLocalStorage("so-cart");
+  const count = cartItems ? cartItems.length : 0;
+  const cartCountEl = document.querySelector("#cart-count");
+  if (cartCountEl) {
+    cartCountEl.textContent = count;
+    cartCountEl.setAttribute("data-count", count);
+  }
+}
+
 export async function loadHeaderFooter() {
   const headerTemplate = await loadTemplate("/partials/header.html");
   const footerTemplate = await loadTemplate("/partials/footer.html");
@@ -73,4 +83,5 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footerTemplate, footerElement);
 
   initSearch();
+  updateCartCount();
 }
