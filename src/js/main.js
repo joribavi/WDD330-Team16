@@ -2,7 +2,7 @@ import { loadHeaderFooter } from "./utils.mjs";
 import modal from "./modal.js";
 
 
-//loadHeaderFooter();
+loadHeaderFooter();
 
 loadHeaderFooter().then(() => {
   // ✅ Search logic runs AFTER header loads
