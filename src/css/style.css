@@ -559,6 +559,34 @@ footer {
   padding: 1em;
 }
 
+/* Alert message */
+.alert {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert p {
+  margin: 0;
+  padding: 0;
+}
+
+.alert span {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+.alert span:hover {
+  color: #580c14;
+}
+
 /* Media queries */
 @media screen and (min-width: 500px) {
   body {

@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, alertMessage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 function packageItems(items) {
@@ -64,18 +64,40 @@ export default class CheckoutProcess {
     if (orderTotal) orderTotal.innerText = `$${this.orderTotal.toFixed(2)}`;
   }
 
-  async checkout(form) {
-    const formData = formDataToJSON(form);
-    const order = {
-      ...formData,
-      orderDate: new Date().toISOString(),
-      orderTotal: this.orderTotal.toFixed(2),
-      tax: this.tax.toFixed(2),
-      shipping: this.shipping,
-      items: packageItems(this.list),
-    };
+    async checkout(form) {
+        try {
+            const formData = formDataToJSON(form);
 
-    const services = new ExternalServices();
-    return await services.checkout(order);
-  }
+            if (formData.cardNumber) {
+                formData.cardNumber = formData.cardNumber.replace(/\s/g, "");
+            }
+
+            const order = {
+                ...formData,
+                orderDate: new Date().toISOString(),
+                orderTotal: this.orderTotal.toFixed(2),
+                tax: this.tax.toFixed(2),
+                shipping: this.shipping,
+                items: packageItems(this.list),
+            };
+
+            const services = new ExternalServices();
+            await services.checkout(order);
+
+            // success — clear cart and redirect
+            localStorage.removeItem("so-cart");
+            window.location.href = "/checkout/success.html";
+
+        } catch (err) {
+            // show each error message from the server
+            if (err.name === "servicesError") {
+                const messages = err.message;
+                Object.values(messages).forEach((message) => {
+                    alertMessage(message);
+                });
+            } else {
+                alertMessage("There was a problem placing your order. Please try again.");
+            }
+        }
+    }
 }

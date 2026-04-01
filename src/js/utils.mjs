@@ -72,6 +72,24 @@ export function updateCartCount() {
   }
 }
 
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+
+  alert.addEventListener("click", function (e) {
+    if (e.target.tagName === "SPAN") {
+      const mainEl = document.querySelector("main");
+      mainEl.removeChild(this);
+    }
+  });
+
+  const mainEl = document.querySelector("main");
+  mainEl.prepend(alert);
+
+  if (scroll) window.scrollTo(0, 0);
+}
+
 export async function loadHeaderFooter() {
   const headerTemplate = await loadTemplate("/partials/header.html");
   const footerTemplate = await loadTemplate("/partials/footer.html");
