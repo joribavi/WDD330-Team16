@@ -247,6 +247,26 @@ button {
   align-items: center;
   padding: 1rem 0;
   list-style: none;
+  position: relative;
+}
+
+.cart-card__remove {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  cursor: pointer;
+  color: var(--tertiary-color);
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cart-card__remove:hover {
+  background-color: var(--tertiary-color);
+  color: white;
 }
 
 .cart-card__image {
