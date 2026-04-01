@@ -43,7 +43,7 @@ export default class ProductDetails {
       || product.Images?.PrimaryMedium 
       || "../images/camping-products.jpg";
 
-    productPrice.innerHTML = product.FinalPrice;
+    productPrice.innerHTML = `$${product.FinalPrice}`;
     productColor.innerHTML = product.Colors?.[0]?.ColorName || "N/A";
     productDescription.innerHTML = product.DescriptionHtmlSimple || "";
 
